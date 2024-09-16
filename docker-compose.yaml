@@ -1,0 +1,21 @@
+services:
+  backend:
+    container_name: tender-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+      POSTGRES_USERNAME: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+    ports:
+      - 8080:8080
+    networks:
+      - tender-service
+
+
+networks:
+  tender-service:
+
